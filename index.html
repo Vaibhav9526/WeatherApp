@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" href="/assests/clear.png" type="image/x-icon">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherApp</title>
+  </head>
+  <body>
+
+    <!-- preloader -->
+
+    <div class="loader">
+      <lottie-player
+        id="lottieAnimation"
+        src="https://lottie.host/d113b100-5897-4efa-91d2-4ec1d7f50f06/c1c8eNHbtC.json"
+        background="#ffffff"
+        speed="4"
+        style="width: 80%; height: 80%"
+        autoplay>
+      </lottie-player>
+      </div>
+
+      <!-- ----------------------------------------------- -->
+       
+      <div class="card">
+        <div class="search">
+            <input type="text" placeholder="Enter city name" spellcheck="false">
+            <button>
+                <img src="/assests/search.png">
+            </button>
+        </div>
+        <div class="error">
+            <p>!!Invalid City Name!!</p>
+        </div>
+        <div class="weather">
+            <img  class="weather-icon">
+            <h1 class="temp"></h1>
+            <h2 class="city"></h2>
+            <div class="details">
+                <div class="col">
+                    <img src="/assests/humidity.png">
+                    <div>
+                        <p class="humidity"></p>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="/assests/wind.png">
+                    <div>
+                        <p class="wind"></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- Footer
+    ================================================== -->
+    <footer>
+        <div id="footer-section" class="text-center">
+          <div class="container">
+              <a class="github" href="https://github.com/Vaibhav9526">~VAIBHAV</a>
+              <p class="copyright">
+                &copy;
+            </p>
+              <a class="github" href="https://github.com/prashant847">~PRASHANT</a>
+              <p class="copyright">
+                &copy;
+            </p>
+              <a class="github" href="https://github.com/Ayushkumarpatel-AKP">~AKP</a>
+              <p class="copyright">
+                  &copy;
+              </p>
+          </div> <!-- End container -->
+        </div> <!-- End footer-section  -->
+      </footer>
+      <!-- End footer -->
+    </div> <!-- End wrapper -->
+    <script src="script.js"></script>
+  </body>
+</html>
