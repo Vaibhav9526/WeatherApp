@@ -33,9 +33,16 @@ async function checkweather(city) {
     }
     // nahi to me agar sahi spelling dala toh run hojana niche ka sara code
     else{
+
         var data = await response.json();
-        
-        document.querySelector(".city").innerHTML = data.name;
+        document.querySelector(".weathername").innerHTML = data.weather[0].main + " (" + data.weather[0].description +")";
+
+        if(data.sys.country == null){
+            document.querySelector(".city").innerHTML = data.name;
+        }else{
+            document.querySelector(".city").innerHTML = data.name + "  (" + data.sys.country + ")";
+        };
+
         document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
         document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
         document.querySelector(".wind").innerHTML = data.wind.speed + "Km/h";
@@ -61,7 +68,7 @@ async function checkweather(city) {
         else if(data.weather[0].main == "Haze"){
             weathericon.src = "assests/haze.png";
         }
-        
+        console.log(data);
         document.querySelector(".weather").style.display="block";
         document.querySelector(".error").style.display ="none";
         
@@ -70,6 +77,18 @@ async function checkweather(city) {
 
 
 }
+// Existing code for search button click event
+searchbtn.addEventListener("click", () => {
+    checkweather(searchbox.value);
+});
+
+// New code for Enter key event
+searchbox.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+        checkweather(searchbox.value);
+    }
+});
+
 
 searchbtn.addEventListener("click" , ()=>{
     checkweather(searchbox.value);
