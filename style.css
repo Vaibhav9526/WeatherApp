@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Electrolize&display=swap");
 @import url('https://fonts.cdnfonts.com/css/ocr-a-std');
+@import url('https://fonts.googleapis.com/css2?family=Danfo&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 *{
     margin: 0;
@@ -17,7 +18,7 @@ html , body{
     max-width: 470px;
     background: linear-gradient(135deg,#03346E, #6EACDA );
     color: #fff;
-    margin: 100px auto 0;
+    margin: 20px auto 0;
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
@@ -70,13 +71,23 @@ input::placeholder{
     margin-top: 30px;
 }
 .weather h1{
-    font-size: 80px;
+    font-size: 70px;
     font-weight: 500;
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 10px;
+    
 }
 .weather h2{
-    font-size: 45px;
+    text-transform: uppercase;
+    font-size: 35px;
     font-weight: 400;
     margin-top: -10px;
+}
+.weathername{
+    margin-top: -10px;
+    font-size: 20px;
+    font-weight: 100;
+    font-family: 'OCR A Std', sans-serif;
 }
 .details{
     display: flex;
