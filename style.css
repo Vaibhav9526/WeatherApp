@@ -10,9 +10,6 @@
 }
 
 html, body {
-    margin: 0;
-    height: 100%;
-    overflow: hidden;
     background-color: #001F3F;
     height: 100%;
     width: 100%;
@@ -169,7 +166,7 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    background: #fec260;
+    background: linear-gradient(180deg,#608BC1,#ffffff,#608BC1);
     color: white;
     text-align: center;
     /* top: 8.2rem; */
@@ -338,7 +335,7 @@ footer {
     }
 
     .col img {
-        width: 7vw;
+        width: 30px;
         margin-right: 10px;
     }
 
@@ -379,17 +376,6 @@ footer {
         text-align: center;
         font-family: "Fugaz One", cursive;
         color: #ecff9a;
-    }
-
-    footer {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        background: #fec260;
-        color: white;
-        text-align: center;
-        /* top: 8.2rem; */
     }
 
     .copyright {
