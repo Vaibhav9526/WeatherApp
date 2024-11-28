@@ -1,82 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="shortcut icon" href="/assests/clear.png" type="image/x-icon">
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js"></script>
+    <link rel="shortcut icon" href="/assests/clear.png" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WeatherApp</title>
   </head>
   <body>
-
-    <!-- preloader -->
-
+    <!-- Preloader -->
     <div class="loader">
-      <lottie-player
-        id="lottieAnimation"
-        src="https://lottie.host/d113b100-5897-4efa-91d2-4ec1d7f50f06/c1c8eNHbtC.json"
-        background="#ffffff"
-        speed="4"
-        style="width: 80%; height: 80%"
-        autoplay>
-      </lottie-player>
+      <div class="preloader">
+        <img src="/assests/clear.png" class="preloader-icon" />
+        <div class="loading-text">Loading Weather</div>
       </div>
-
-      <!-- ----------------------------------------------- -->
-       <a href="https://atv-projects.netlify.app/" target="_blank">
-         <marquee class="blink">
-           check out our website for more fun projects
-          </marquee> 
-        </a>
-
-      <div class="card">
-        <div class="search">
-            <input type="text" placeholder="Enter city name" spellcheck="false">
-            <button>
-                <img src="/assests/search.png">
-            </button>
-        </div>
-        <div class="error">
-            <p>!!Invalid City Name!!</p>
-        </div>
-        <div class="weather">
-          <a class="owm" target="_blank">
-            <img  class="weather-icon">
-            <h4 class="weathername"></h4>
-            <h1 class="temp"></h1>
-            <h2 class="city"></h2>
-            </a>
-            <div class="details">
-                <div class="col">
-                  <img src="/assests/humidity.png">
-                    <div>
-                        <p class="humidity"></p>
-                    </div>
-                </div>
-                <div class="col">
-                    <img src="/assests/wind.png">
-                    <div>
-                        <p class="wind"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
-   <!-- Footer
-    ================================================== -->
+    <a href="https://atv-projects.netlify.app/" target="_blank">
+      <marquee class="blink">
+        check out our website for more fun projects
+      </marquee>
+    </a>
+    <!-- card -->
+    <div class="card">
+      <div class="search">
+        <input type="text" placeholder="Enter city name" spellcheck="false" />
+        <button>
+          <img src="/assests/search.png" />
+        </button>
+      </div>
+      <div class="error">
+        <p>Invalid!</p>
+      </div>
+      <div class="weather">
+        <a class="owm" target="_blank">
+          <img class="weather-icon" />
+          <h4 class="weathername"></h4>
+          <h1 class="temp"></h1>
+          <h2 class="city"></h2>
+        </a>
+        <div class="details">
+          <div class="col">
+            <img src="/assests/humidity.png" />
+            <div>
+              <p class="humidity"></p>
+            </div>
+          </div>
+          <div class="col">
+            <img src="/assests/wind.png" />
+            <div>
+              <p class="wind"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
     <footer>
-        <div id="footer-section" class="text-center">
-          <div class="container">
-              <a class="github" href="https://github.com/Vaibhav9526" target="_blank">@VAIBHAV</a>
-              <a class="github" href="https://github.com/prashant847" target="_blank">@PRASHANT</a>
-              <a class="github" href="https://github.com/Ayushkumarpatel-AKP" target="_blank">@AKP</a>
-          </div> <!-- End container -->
-        </div> <!-- End footer-section  -->
-      </footer>
-      <!-- End footer -->
-    </div> <!-- End wrapper -->
+      <div id="footer-section" class="text-center">
+        <div class="container">
+          <a
+            class="github"
+            href="https://github.com/Vaibhav9526"
+            target="_blank"
+            >@VAIBHAV</a
+          >
+          <a
+            class="github"
+            href="https://github.com/prashant847"
+            target="_blank"
+            >@PRASHANT</a
+          >
+          <a
+            class="github"
+            href="https://github.com/Ayushkumarpatel-AKP"
+            target="_blank"
+            >@AKP</a
+          >
+        </div>
+      </div>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>
