@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunset & Sunrise Timings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen [background:radial-gradient(125%_125%_at_50%_10%,#FF4E50_40%,#F9D423_100%)]">
+    <!-- Preloader -->
+    <div class="loader fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+        <div class="text-center">
+            <img src="/assests/sunset.png" class="w-24 h-24 mx-auto animate-pulse" alt="Loading">
+            <div class="text-white mt-4 text-xl">Analyzing Current Location...</div>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-12">
+        <div class="max-w-xl mx-auto">
+            <!-- Search Card -->
+            <div class="gradient-bg rounded-2xl p-8 shadow-2xl">
+                <div class="flex flex-col space-y-6">
+                    
+                    <!-- Search Section -->
+                    <div class="SunSearch flex space-x-4">
+                        <input type="text" placeholder="Enter city name" 
+                               class="sunInput w-full px-6 py-4 rounded-full text-gray-800 search-shadow font-['OCR_A_Std'] uppercase"
+                               spellcheck="false">
+                        <button class="sunBtn bg-white p-4 rounded-full search-shadow hover:bg-gray-100 transition-colors">
+                            <img src="/assests/search.png" class="w-6 h-6" alt="Search">
+                        </button>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="results hidden">
+                        <div class="text-white text-center space-y-6">
+                            <h2 class="text-2xl font-bold city-name"></h2>
+                            
+                            <!-- Sunrise Info -->
+                            <div class="bg-white/20 rounded-xl p-6 hover:bg-white/30 transition-all hover:transform hover:scale-105 cursor-pointer">
+                                <img src="/assests/clear.png" class="w-16 h-16 mx-auto mb-2" alt="Sunrise">
+                                <h3 class="text-xl font-semibold font-['OCR_A_Std'] uppercase">Sunrise</h3>
+                                <p class="sunrise-time text-2xl"></p>
+                            </div>
+
+                            <!-- Sunset Info -->
+                            <div class="bg-white/20 rounded-xl p-6 hover:bg-white/30 transition-all hover:transform hover:scale-105 cursor-pointer">
+                                <img src="/assests/sunset.png" class="w-16 h-16 mx-auto mb-2" alt="Sunset">
+                                <h3 class="text-xl font-semibold text-2xl font-['OCR_A_Std'] uppercase">Sunset</h3>
+                                <p class="sunset-time text-2xl text-2xl "></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div class="error hidden">
+                        <p class="text-white text-center text-lg">INVALID CITY NAME</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="SunTime.js"></script>
+</body>
+</html>

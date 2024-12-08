@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" href="/assests/clear.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherApp</title>
+  </head>
+  <body class="min-h-screen">
+    <!-- Preloader -->
+    <div class="loader">
+        <div class="preloader">
+          <img src="/assests/clear.png" class="preloader-icon" />
+          <div class="loading-text">analyzing current location...</div>
+        </div>
+    </div>
+
+    <!-- card -->
+    <div class="card">
+      <div class="search">
+        <input type="text" placeholder="Enter city name" spellcheck="false" />
+        <button>
+          <img src="/assests/search.png" />
+        </button>
+      </div>
+      <div class="error">
+        <p>Invalid!</p>
+      </div>
+      <div class="weather">
+        <a class="owm" target="_blank">
+          <img class="weather-icon" />
+          <h4 class="weathername"></h4>
+          <h1 class="temp"></h1>
+          <h2 class="city"></h2>
+        </a>
+        <div class="details">
+          <div class="col">
+            <img src="/assests/humidity.png" />
+            <div>
+              <p class="humidity"></p>
+            </div>
+          </div>
+          <div class="col">
+            <img src="/assests/wind.png" />
+            <div>
+              <p class="wind"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="weather.js"></script>
+  </body>
+</html>
