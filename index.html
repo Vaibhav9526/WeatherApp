@@ -3,44 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather & Sunset App</title>
+    <title>Vaibhav's App</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen flex items-center justify-center">
-    <div class="absolute top-0 z-[-2] h-screen w-screen bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]"></div>
-    <div class="container mx-auto px-2 sm:px-4">
-        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
+<body>
+    <!-- Add the background gradient div -->
+    <div class="absolute inset-0 -z-10 h-full w-full items-center [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
+    
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="flex flex-col w-full max-w-md mx-auto shadow-lg rounded-2xl overflow-hidden bg-opacity-80">
+            <!-- Changed from indigo to dark grey -->
+            <div class="w-full bg-gray-800 bg-opacity-80 p-6">
+                <div class="text-center py-4">
+                    <h2 class="text-white text-3xl font-bold mb-2">:( Error</h2>
+                    <h2 class="password text-white text-3xl font-bold"></h2>
+                </div>
+            </div>
             
-            <!-- Weather Card -->
-            <a href="Weather.html" class="transform transition-all hover:scale-105 relative overflow-hidden rounded-2xl">
-                <div class="relative z-10 p-4 sm:p-8 text-white text-center">
-                    <img src="/assests/weather.png" alt="Weather" class="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-2 sm:mb-4">
-                    <h2 class="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">Weather Forecast</h2>
-                    <p class="text-base sm:text-lg opacity-90">Check current weather conditions for any city</p>
+            <!-- Updated form section with darker theme -->
+            <div class="w-full bg-gray-900 bg-opacity-80 p-6">
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-gray-100">Enter Password To Continue</h3>
                 </div>
-                <div class="absolute inset-0 -z-10 h-full w-full [background:radial-gradient(125%_125%_at_50%_10%,#03346E_40%,#6EACDA_100%)]"></div>
-            </a>
-
-            <!-- Sunset/Sunrise Card -->
-            <a href="Sun.html" class="transform transition-all hover:scale-105 relative overflow-hidden rounded-2xl">
-                <div class="relative z-10 p-4 sm:p-8 text-white text-center">
-                    <img src="/assests/sunset.png" alt="Sunset" class="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-2 sm:mb-4">
-                    <h2 class="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">Sunset & Sunrise</h2>
-                    <p class="text-base sm:text-lg opacity-90">Get accurate sunset and sunrise timings</p>
-                </div>
-                <div class="absolute inset-0 -z-10 h-full w-full [background:radial-gradient(125%_125%_at_50%_10%,#FF8C42_40%,#FFB88C_100%)]"></div>
-            </a>
-
+                
+                <form class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Password</label>
+                        <input type="text" 
+                               class="input w-full px-3 py-2 rounded-lg border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-gray-500 focus:border-gray-500"
+                               placeholder="Enter your password">
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <a href="#" class="text-sm text-gray-300 hover:text-gray-100" onclick="alert('The number after Error is your password')">Forgot password?</a>
+                    </div>
+                    
+                    <button type="submit" 
+                            class="w-full bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2" onclick="Continue()">
+                        Sign in
+                    </button>
+                </form>
+            </div>
         </div>
-
-        <!-- Footer -->
     </div>
-    <footer class="fixed bottom-0 w-full py-2 sm:py-4 text-center text-white" style="font-family: 'OCR A Std', monospace;">
-        <div class="container mx-auto">
-            <a href="https://github.com/Vaibhav9526" target="_blank" class="text-base sm:text-lg hover:text-gray-300 transition-colors">
-               © VAIBHAV SHARMA
-            </a>
-        </div>
-    </footer>
+    <script>
+        const Password = document.querySelector('.password');
+        const Input = document.querySelector('.input');
+        Password.innerHTML  = Math.floor(Math.random() * 10000);
+        function Continue(){
+            if(Input.value == Password.innerHTML){
+                window.location.href = "Main.html";
+                console.log("Correct Password");
+            }else{
+                alert("Incorrect Password");
+            }
+        }
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+    });
+    </script>
 </body>
 </html>
