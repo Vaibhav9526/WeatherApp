@@ -24,12 +24,12 @@ async function checkweather(city) {
     document.querySelector(".wind").innerHTML = data.wind.speed + "Km/h";
     document.querySelector(".owm").href = "https://openweathermap.org/city/" + data.id;
     //displaying the weather icon
-    var WeatherType = data.weather[0].main;
-    weathericon.src = `assests/${WeatherType}.png`;
+    
+    const WeatherType = data.weather[0].main.toLowerCase();
+    weathericon.src = `/assests/${WeatherType}.png`;
     //displaying the card
     document.querySelector(".weather").style.display = "block";
     document.querySelector(".error").style.display = "none";
-    document.querySelector(".blink").style.display = "none";
     }
 }
 window.addEventListener("load", async () => {
