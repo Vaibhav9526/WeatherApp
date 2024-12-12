@@ -41,7 +41,7 @@ async function checkweather(city) {
     document.querySelector(".min-temp").innerHTML = Math.round(data.main.temp_min) + "°C"; //min temperature
     document.querySelector(".sunrise").innerHTML = new Date(data.sys.sunrise * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });//sunrise time
     document.querySelector(".sunset").innerHTML = new Date(data.sys.sunset * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });//sunset time
-    document.querySelector(".visibility").innerHTML = data.visibility + "m"; //visibility
+    document.querySelector(".visibility").innerHTML = data.visibility/1000 + "km"; //visibility
     document.querySelector(".aqi").innerHTML = aqiMap[aqiData.list[0].main.aqi];//air quality
     
     weathericon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png `; //weather icon from openweathermap
