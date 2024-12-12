@@ -3,17 +3,16 @@
   <head>
     <link rel="shortcut icon" href="/assests/clear.png" type="image/x-icon" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WeatherApp</title>
   </head>
-  <body class="min-h-screen bg-gradient-to-b from-blue-400 to-blue-600 flex items-center justify-center p-4">
+  <body class="min-h-screen text-white flex flex-col items-center p-4 max-w-4xl mx-auto" style="background-image: url('assests/bg.png'); background-size: cover; background-position: center;">
     <!-- Preloader -->
-    <div class="loader fixed inset-0 bg-white/90 backdrop-blur-sm z-50 flex items-center justify-center">
+    <div class="loader fixed inset-0 bg-[#202124] z-50 flex items-center justify-center">
         <div class="preloader flex flex-col items-center gap-4">
-          <img src="/assests/clear.png" class="preloader-icon w-16 h-16 animate-bounce" />
-          <div class="loading-text text-gray-600 ">Loading weather...</div>
+            <img src="/assests/clear.png" class="preloader-icon w-16 h-16 animate-pulse" />
+            <div class="loading-text text-gray-400 text-sm">Loading weather...</div>
         </div>
     </div>
     
@@ -29,112 +28,98 @@
         100% { width: 0%; }
       }
     </style>
-    <!-- card -->
-    <div class="card bg-white rounded-3xl shadow-lg w-full max-w-md p-6">
-      <div class="search flex gap-2 mb-6">
-        <input 
-          type="text" 
-          placeholder="Enter city name" 
-          spellcheck="false"
-          class="w-full px-4 py-2 rounded-xl bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-700"
+
+  <div class="w-full backdrop-blur-md shadow-lg p-4 rounded-lg">
+        <!-- Search section -->
+        <div class="search flex gap-2 p-4 w-full">
+            <input 
+            type="text" 
+            placeholder="Search for a city" 
+            spellcheck="false"
+            class="w-full px-4 py-2 rounded-lg bg-[#303134]/50 border border-[#5f6368] focus:outline-none focus:border-blue-500 text-white placeholder-gray-400"
         />
-        <button class="px-4 rounded-xl bg-blue-500 hover:bg-blue-600 transition-colors flex items-center justify-center">
-          <img src="/assests/search.png" class="w-5 h-5 brightness-0 invert" />
+        <button class="p-2 rounded-lg hover:bg-[#303134] transition-colors">
+            <img src="/assests/search.png" class="w-5 h-5 brightness-0 invert opacity-75" />
         </button>
-      </div>
-
-      <div class="error hidden">
-        <p class="text-red-500 bg-red-50 rounded-lg px-4 py-2 text-center">Invalid city name!</p>
-      </div>
-
-      <div class="weather">
-
-        <div class="text-center mb-6">
-          <img class="weather-icon w-32 h-32 mx-auto mb-2" />
-          <h4 class="weathername text-gray-600 text-xl mb-2"></h4>
-          <h1 class="temp text-gray-900 text-6xl font-bold mb-1"></h1>
-          <h2 class="city text-gray-700 text-2xl"></h2>
-        </div>
-
-        <div class="details grid grid-cols-2 gap-4 bg-gray-50 rounded-2xl p-4 mb-4">
-          <div class="col flex items-center gap-4">
-            <div class="p-3 bg-blue-100 rounded-xl">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 15c0-8.5-8-14-8-14S4 6.5 4 15a8 8 0 0016 0zM12 9v8m-4-4h8" />
-              </svg>
-            </div>
-            <div>
-              <p class="text-sm text-gray-500">Humidity</p>
-              <p class="humidity text-gray-900 text-xl font-semibold"></p>
-            </div>
-          </div>
-          <div class="col flex items-center gap-4">
-            <div class="p-3 bg-blue-100 rounded-xl">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 15h12m3 0h1a4 4 0 100-8h-1M2 9h12m3 0h2a3 3 0 110 6h-2m-9-3h8" />
-              </svg>
-            </div>
-            <div>
-              <p class="text-sm text-gray-500">Wind Speed</p>
-              <p class="wind text-gray-900 text-xl font-semibold"></p>
-            </div>
-          </div>
-        </div>
-
-        <!-- New Temperature Range Section -->
-        <div class="temp-range grid grid-cols-2 gap-4 bg-gray-50 rounded-2xl p-4">
-          <div class="col flex items-center gap-4">
-            <div class="p-3 bg-red-100 rounded-xl">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
-              </svg>
-            </div>
-            <div>
-              <p class="text-sm text-gray-500">Max Temp</p>
-              <p class="max-temp text-gray-900 text-xl font-semibold"></p>
-            </div>
-          </div>
-          <div class="col flex items-center gap-4">
-            <div class="p-3 bg-blue-100 rounded-xl">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-              </svg>
-            </div>
-            <div>
-              <p class="text-sm text-gray-500">Min Temp</p>
-              <p class="min-temp text-gray-900 text-xl font-semibold"></p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Add new sunrise/sunset section -->
-        <div class="sun-times grid grid-cols-2 gap-4 bg-gray-50 rounded-2xl p-4 mb-4">
-          <div class="col flex items-center gap-4">
-            <div class="p-3 bg-orange-100 rounded-xl">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-              </svg>
-            </div>
-            <div>
-              <p class="text-sm text-gray-500">Sunrise</p>
-              <p class="sunrise text-gray-900 text-xl font-semibold"></p>
-            </div>
-          </div>
-          <div class="col flex items-center gap-4">
-            <div class="p-3 bg-orange-100 rounded-xl">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-              </svg>
-            </div>
-            <div>
-              <p class="text-sm text-gray-500">Sunset</p>
-              <p class="sunset text-gray-900 text-xl font-semibold"></p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
-    <script src="weather.js"></script>
+    <!-- Error message -->
+    <div class="error hidden">
+        <div class="flex items-center gap-2 text-red-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+            </svg>
+            <p class="text-sm">Invalid city name!</p>
+        </div>
+    </div>
+
+    <!-- Main weather content -->
+    <div class="weather w-full mt-4">
+        <!-- Primary info -->
+        <div class="flex items-start justify-between mb-8">
+            <div>
+                <div class="flex items-center gap-2 mb-1">
+                    <h2 class="city text-2xl text-gray-800 uppercase font-bold"></h2>
+                    <img class="country-flag w-6 h-4 object-cover rounded-sm" />
+                </div>
+                <div class="flex items-center gap-2">
+                    <h4 class="weathername text-gray-700 text-lg"></h4>
+                    <img class="weather-icon w-16 h-16" />
+                </div>
+            </div>
+            <div class="flex items-center">
+                <img src="https://cdn-icons-png.flaticon.com/512/1843/1843544.png" class="w-6 h-6 mr-1 brightness-0 invert opacity-75" />
+                <h1 class="temp text-4xl ml-0"></h1>
+            </div>
+        </div>
+
+        <!-- Weather details grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div class="p-4 bg-[#303134]/70 backdrop-blur-sm rounded-xl transition-all hover:bg-[#303134]/90 hover:shadow-lg border border-[#5f6368]/20 hover:border-[#5f6368]/40">
+                <div class="text-gray-400 text-sm mb-1">Humidity</div>
+                <div class="humidity text-[15px]"></div>
+            </div>
+            <div class="p-4 bg-[#303134]/70 backdrop-blur-sm rounded-xl transition-all hover:bg-[#303134]/90 hover:shadow-lg border border-[#5f6368]/20 hover:border-[#5f6368]/40">
+                <div class="text-gray-400 text-sm mb-1">Wind Speed</div>
+                <div class="wind text-[15px]"></div>
+            </div>
+            <div class="p-4 bg-[#303134]/70 backdrop-blur-sm rounded-xl transition-all hover:bg-[#303134]/90 hover:shadow-lg border border-[#5f6368]/20 hover:border-[#5f6368]/40">
+                <div class="text-gray-400 text-sm mb-1">Temperature Range</div>
+                <div class="flex items-center gap-2 text-[15px]">
+                    <span class="min-temp"></span>
+                    <span class="text-gray-500">/</span>
+                    <span class="max-temp"></span>
+                </div>
+            </div>
+            <div class="p-4 bg-[#303134]/70 backdrop-blur-sm rounded-xl transition-all hover:bg-[#303134]/90 hover:shadow-lg border border-[#5f6368]/20 hover:border-[#5f6368]/40">
+                <div class="text-gray-400 text-sm mb-1">Sunrise • Sunset</div>
+                <div class="flex items-center gap-2 text-[15px]">
+                    <span class="sunrise"></span>
+                    <span class="text-gray-500">•</span>
+                    <span class="sunset"></span>
+                </div>
+            </div>
+            <div class="p-4 bg-[#303134]/70 backdrop-blur-sm rounded-xl transition-all hover:bg-[#303134]/90 hover:shadow-lg border border-[#5f6368]/20 hover:border-[#5f6368]/40">
+                <div class="text-gray-400 text-sm mb-1">Air Quality</div>
+                <div class="aqi text-[15px]"></div>
+            </div>
+            <div class="p-4 bg-[#303134]/70 backdrop-blur-sm rounded-xl transition-all hover:bg-[#303134]/90 hover:shadow-lg border border-[#5f6368]/20 hover:border-[#5f6368]/40">
+                <div class="text-gray-400 text-sm mb-1">Visibility</div>
+                <div class="visibility text-[15px]"></div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="fixed bottom-0 left-0 right-0 text-center text-white backdrop-blur-sm py-2 px-6 bg-[#303134]/30 border-t border-[#5f6368]/20">
+    <p class="text-m">
+      <a href="https://github.com/vaibhav9526" class="font-light hover:text-gray-400 transition-colors">
+        Vaibhav Sharma
+      </a>
+    </p>
+  </footer>
+
+  <script src="weather.js"></script>
   </body>
 </html>

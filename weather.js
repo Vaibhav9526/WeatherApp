@@ -15,13 +15,25 @@ async function checkweather(city) {
     searchbox.value = city; //search input value for default city (IP address city)
     if (response.status == '' || response.status == 404 || response.status == 400) { //error handling
       document.querySelector(".error").style.display = "block";
-      alert("INVALID CITY NAME");
+      loadingSpinner.style.display = "none";
+      document.querySelector(".weather").style.display = "none";
     } else {
     var data = await response.json();//fetching data
-    console.log(data)
     
+    // Fetch AQI data using coordinates from weather data
+    const aqiResponse = await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${data.coord.lat}&lon=${data.coord.lon}&appid=${apikey}`);
+    const aqiData = await aqiResponse.json();
+    const aqiMap = {    // Map AQI values to descriptive text
+        1: "Good",
+        2: "Fair", 
+        3: "Moderate",
+        4: "Poor",
+        5: "Very Poor"
+    };
+
     document.querySelector(".weathername").innerHTML = data.weather[0].main + " (" + data.weather[0].description + ")"; //weather name
     document.querySelector(".city").innerHTML = data.name; //city name
+    document.querySelector(".country-flag").src = `https://flagcdn.com/${data.sys.country.toLowerCase()}.svg`; //country flag
     document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C"; //temperature
     document.querySelector(".humidity").innerHTML = data.main.humidity + "%"; //humidity
     document.querySelector(".wind").innerHTML = data.wind.speed + "Km/h"; //wind speed
@@ -29,6 +41,8 @@ async function checkweather(city) {
     document.querySelector(".min-temp").innerHTML = Math.round(data.main.temp_min) + "°C"; //min temperature
     document.querySelector(".sunrise").innerHTML = new Date(data.sys.sunrise * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });//sunrise time
     document.querySelector(".sunset").innerHTML = new Date(data.sys.sunset * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });//sunset time
+    document.querySelector(".visibility").innerHTML = data.visibility + "m"; //visibility
+    document.querySelector(".aqi").innerHTML = aqiMap[aqiData.list[0].main.aqi];//air quality
     
     weathericon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png `; //weather icon from openweathermap
     
